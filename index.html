@@ -18,19 +18,21 @@
 		<script>
 			document.addEventListener("DOMContentLoaded", function() {
 				const form = document.querySelector('form');
-				const name = document.querySelector('input[name="name"]');
-				const email = document.querySelector('input[name="email"]');
-				const message = document.querySelector('input[name="message"]');
+			
 				form.addEventListener('submit', function(event) {
 						event.preventDefault();
-						fetch("https://flare.pub/api/contact", {
-							body: JSON.stringify({name, email, message}),
-							method: "POST",
-							headers: {
-      "Content-Type": "application/json",
+						
+						const data = JSON.stringify({name: document.getElementById('name').value, email: document.getElementById('email').value, message:document.getElementById('message').value})
+				
+						fetch("http://localhost:3000/api/contact", {
+							method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     },
-	redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer",
+    body: data
+
+						
 						}).then(e=>alert("Message sent!"))
 
 						return false
