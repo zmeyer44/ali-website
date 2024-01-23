@@ -22,13 +22,18 @@
 				const email = document.querySelector('input[name="email"]');
 				const message = document.querySelector('input[name="message"]');
 				form.addEventListener('submit', function(event) {
-				   document.getElementById('show-loading').style.display = "flex";
-				
 						event.preventDefault();
 						fetch("https://www.askclio.com/api/ali", {
 							body: JSON.stringify({name, email, message}),
-							method: "POST"
+							method: "POST",
+							headers: {
+      "Content-Type": "application/json",
+    },
+	redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer",
 						}).then(e=>alert("Message sent!"))
+
+						return false
 					
 				});
 			});
