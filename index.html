@@ -25,7 +25,7 @@
 				   document.getElementById('show-loading').style.display = "flex";
 				
 						event.preventDefault();
-						fetch('https://www.askclio.com/api/ali', {
+						fetch("https://www.askclio.com/api/ali", {
 							body: JSON.stringify({name, email, message}),
 							method: "POST"
 						}).then(e=>alert("Message sent!"))
@@ -267,7 +267,7 @@
 						</header>
 						<div class="content">
 							<p><strong>Seen enough?</strong>Reach out to me if you'd like to start working together. Currently looking for positions starting June 2024.</p>
-							<form action="https://www.askclio.com/api/ali" method="POST">
+							<form>
 								<div class="fields">
 									<div class="field half">
 										<input type="text" name="name" id="name" placeholder="Name" />
