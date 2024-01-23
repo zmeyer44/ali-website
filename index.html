@@ -23,7 +23,7 @@
 				const message = document.querySelector('input[name="message"]');
 				form.addEventListener('submit', function(event) {
 						event.preventDefault();
-						fetch("https://www.askclio.com/api/ali", {
+						fetch("https://flare.pub/api/contact", {
 							body: JSON.stringify({name, email, message}),
 							method: "POST",
 							headers: {
