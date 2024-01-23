@@ -15,6 +15,24 @@
 		<meta property="og:image" content="https://o-0-o-image-storage.s3.amazonaws.com/ali-website/preview.png" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				const form = document.querySelector('form');
+				const name = document.querySelector('input[name="name"]');
+				const email = document.querySelector('input[name="email"]');
+				const message = document.querySelector('input[name="message"]');
+				form.addEventListener('submit', function(event) {
+				   document.getElementById('show-loading').style.display = "flex";
+				
+						event.preventDefault();
+						fetch('https://www.askclio.com/api/ali', {
+							body: JSON.stringify({name, email, message}),
+							method: "POST"
+						}).then(e=>alert("Message sent!"))
+					
+				});
+			});
+		 </script>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
